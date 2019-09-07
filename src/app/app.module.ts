@@ -7,6 +7,7 @@ import {reducer,selectNodeReducer} from './root.reducer';
 import {FormsModule} from "@angular/forms";
 import { NodedetailComponent } from './nodedetail/nodedetail.component';
 import { FilterPipe } from './filter.pipe';
+import {ShowandhideService} from './showandhide.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,7 @@ import { FilterPipe } from './filter.pipe';
     FormsModule,
     StoreModule.forRoot({nodes:reducer, selectedNode:selectNodeReducer})
   ],
-  providers: [],
+  providers: [ShowandhideService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

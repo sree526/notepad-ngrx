@@ -1,3 +1,51 @@
 .notescards{
     border:1px solid black;
 }
+// src/app/layout/authorised/authorised-side-nav/authorised-side-nav.component.scss
+:host {
+background: #343a40;
+}
+
+#sidebar {
+min-width: 300px;
+max-width: 300px;
+min-height: 100vh;
+color: #fff;
+transition: all 0.3s;
+font-weight: 300;
+font-size: 1rem;
+line-height: 1.5;
+}
+
+#sidebar.hidden {
+  margin-left: -300px;
+}
+
+li[data-toggle="collapse"] {
+  position: relative;
+}
+
+@media (max-width: 575px) {
+  #sidebar {
+      margin-left: -200px;
+  }
+  #sidebar.hidden {
+      margin-left: 0;
+  }
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+}
+
+#sidebar ul li {
+padding: 15px;
+display: block;
+margin-left:20px;
+width: 100%;
+}
+
+hr {
+border-top: 1px solid #fff;
+margin-top: 0;
+}

@@ -1,5 +1,6 @@
 <form #notesForm="ngForm" *ngIf="node">
     <div class="form-group">
+      <h3>Update Notes</h3>
   <div class="row">
     <label for="notes">Notes Title</label>
     <input type="text" name="notesTitle" [(ngModel)]="node.notesTitle" class="form-control" id="notes">
@@ -15,6 +16,7 @@
 </form>
 <div *ngIf="!node" class="container-fluid">
     <div class="form-group">
+       <h3>Add Notes</h3>
   <div class="row">
     <label for="notes">Notes Title</label>
     <input type="text"  [(ngModel)]="notesTitle" class="form-control" id="notes">

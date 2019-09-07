@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from '@ngrx/store';
+import {Node} from '../root.reducer';
 @Component({
   selector: 'app-nodedetail',
   templateUrl: './nodedetail.component.html',
@@ -25,7 +26,12 @@ export class NodedetailComponent implements OnInit {
     })
   }
   updateValue(){
-    this.store.dispatch({type:"UPDATE_NODE",payload:this.node})
+    this.store.dispatch({type:"UPDATE_NODE",payload: {
+      notesTitle:this.node.notesTitle,
+      timestamp:this.formatAMPM(new Date()),
+      notes:this.node.notes,
+      id:this.node.id
+    }})
   }
    newNode(){
     console.log(this.notesarray.length);

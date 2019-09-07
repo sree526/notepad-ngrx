@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Store} from '@ngrx/store';
+import {ShowandhideService} from './showandhide.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +11,7 @@ export class AppComponent {
   nodevalue:String ="";
   nodes:any[]=[]
   notes:string;
-  constructor(private store:Store<any>) {
+  constructor(private store:Store<any>,public showandhideService: ShowandhideService) {
 
   }
   ngOnInit(){

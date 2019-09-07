@@ -1,18 +1,26 @@
-<nav class="navbar navbar-expand-sm bg-light">
+<nav class="navbar navbar-dark bg-dark">
   <!--<button type="click" (click)="newNode()">Add Notes</button>-->
-  <input type="text"  [(ngModel)]="notes" class="form-control" placeholder="Search here for notes..."id="notes">
+    <button type="button" class="navbar-toggler" (click)="showandhideService.showandhidesidenav()">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<input type="text" [(ngModel)]="notes" class="form-control col-6" placeholder="Search here for notes..." id="notes">
 </nav>
 <div class="row">
-  
-  <div class="col-4 col-md-4">
-        <div  class="notescards" *ngFor="let node of nodes| filter: notes" (click)="selectedNode(node)">
-      <p><small><b>{{node.notesTitle}}</b></small><p>
-      <p>{{node.notes}}</p>
-      <p><small>{{node.timestamp}}</small></p>
-         <button type="click" (click)="deleteNode(node)">X</button>
-      </div>
-    </div>
-  <div class="col-6">
+<nav id="sidebar" class="navbar-dark bg-dark" [ngClass]="{'hidden': showandhideService.showandhide}">
+  <ul class="navbar-nav">
+    <li class="nav-item" *ngFor="let node of nodes| filter: notes"  (click)="selectedNode(node)">
+    <p><small><b>{{node.notesTitle}}</b></small></p>
+          <p>{{node.notes}}</p>
+          <p><small>{{node.timestamp}}</small></p>
+          <button type="click" (click)="deleteNode(node)">X</button>
+          <hr/>
+    </li>
+  </ul>
+</nav>
+
+  <div class="col-8">
+    <div class="row justify-content-center">
     <app-nodedetail></app-nodedetail>
+    </div>
   </div>
 </div>
